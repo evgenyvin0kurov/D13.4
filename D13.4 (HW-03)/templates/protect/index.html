@@ -1,0 +1,18 @@
+{% extends "main.html" %}
+
+{% block content %}
+<h2>Authorized User {{request.user.username}} Page</h2>
+<div> Could contain personal info </div>
+
+<form action="" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Subscribe" />
+</form>
+
+<button> <a href="sign/logout/">Exit</a> </button>
+<br/>
+{% if is_not_author %}
+<button> <a href="sign/upgrade/"> Wanna become an Author </a> </button>
+{% endif %}
+{% endblock %}
